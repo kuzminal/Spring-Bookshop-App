@@ -107,13 +107,13 @@ paths:
     get:
       tags:
         - user
-      summary: Returns a customer
-      description: Returns a customers identifiable by given ID
+      summary: Возвращает клиента
+      description: Возвращает конкретного клиента про предоставленному идентификатору
       operationId: getCustomerById
       parameters:
         - name: id
           in: path
-          description: Customer Identifier
+          description: Идентификатор клиента
           required: true
           schema:
             type: string
@@ -127,19 +127,19 @@ paths:
     delete:
       tags:
         - user
-      summary: Deletes the customer
-      description: Deletes the customer identifiable by given ID
+      summary: Удалить клиента
+      description: Удалить клиента по предоставленному идентификатору
       operationId: deleteCustomerById
       parameters:
         - name: id
           in: path
-          description: Customer Identifier
+          description: Идентификатор клиента
           required: true
           schema:
             type: string
       responses:
         202:
-          description: Request accepted, returns this status even if user does not exist
+          description: Запрос принят, возвращается данный статус даже если клиент не найден
           content: {}
 components:
   schemas:
@@ -164,7 +164,7 @@ components:
           type: string
           format: binary
         genre:
-          description: Жанр книги
+          #description: Жанр книги
           $ref: '#/components/schemas/Genre'
         authors:
           description: Авторы книги

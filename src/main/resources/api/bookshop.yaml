@@ -162,7 +162,7 @@ components:
         imageCover:
           description: Картинка обложки
           type: string
-          format: binary
+          format: byte
         genre:
           #description: Жанр книги
           $ref: '#/components/schemas/Genre'
@@ -179,12 +179,6 @@ components:
           description: Количество
           type: integer
           format: int32
-        tag:
-          description: Тэг, связанный с книгой (можно будет использовать для поиска и группировки)
-          type: array
-          uniqueItems: true
-          items:
-            type: string
     User:
       type: object
       properties:

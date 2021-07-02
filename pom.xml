@@ -69,6 +69,10 @@
             <artifactId>reactor-core</artifactId>
             <version>${projectreactor.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
@@ -96,18 +100,24 @@
                         </goals>
                         <configuration>
                             <inputSpec>
-                                ${project.basedir}/src/main/resources/bookshop.yml
+                                ${project.basedir}/src/main/resources/api/bookshop.yaml
                             </inputSpec>
                             <generatorName>spring</generatorName>
-                            <apiPackage>com.kuzmin.bookshop.api</apiPackage>
+                            <apiPackage>com.kuzmin.bookshop</apiPackage>
                             <modelPackage>com.kuzmin.bookshop.model</modelPackage>
                             <supportingFilesToGenerate>
                                 ApiUtil.java
                             </supportingFilesToGenerate>
                             <configOptions>
                                 <delegatePattern>true</delegatePattern>
-                                <reactive>true</reactive>
+<!--                                Если нужна реактивность-->
+<!--                                <reactive>true</reactive>-->
+                                <hateoas>true</hateoas>
                             </configOptions>
+                            <importMappings>
+                                <ResourceSupport>org.springframework.hateoas.RepresentationModel</ResourceSupport>
+                                <Link>org.springframework.hateoas.Link</Link>
+                            </importMappings>
                         </configuration>
                     </execution>
                 </executions>
